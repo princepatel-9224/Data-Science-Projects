@@ -7,15 +7,17 @@ from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-import sklearn.external.joblib as extjoblib
 import joblib
 import seaborn as sns; sns.set_style('whitegrid')
 from nltk.tokenize import RegexpTokenizer
 import nltk
-
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
+nltk.data.path.append('C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/nltk_data/')
+nltk.download("stopwords", "C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/nltk_data/")
+nltk.download("punkt", "C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/nltk_data/")
+nltk.download("wordnet", "C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/nltk_data/")
+#nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('wordnet')
 stop_words = set(stopwords.words("english"))
 default_stemmer = PorterStemmer()
 default_stopwords = stopwords.words('english')
@@ -29,7 +31,7 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    df = pd.read_csv('C:\\Users\\princ\\Documents\\GitHub\\Data-Science-Projects\\Abusive-Email-Detectorr\\train.csv')
+    df = pd.read_csv("C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/train.csv")
     df = df.drop(['Unnamed: 0', 'filename', 'Message-ID'], axis = 1)
     df['label'] = df['Class'].map({'Non Abusive': 0, 'Abusive': 1})
     def clean_text(text, ):
