@@ -7,7 +7,8 @@ from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.externals import extjoblib
+import sklearn.external.joblib as extjoblib
+import joblib
 import seaborn as sns; sns.set_style('whitegrid')
 from nltk.tokenize import RegexpTokenizer
 import nltk
