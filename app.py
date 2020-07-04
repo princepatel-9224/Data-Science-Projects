@@ -8,7 +8,6 @@ from nltk.corpus import stopwords
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import joblib
-import seaborn as sns; sns.set_style('whitegrid')
 from nltk.tokenize import RegexpTokenizer
 import nltk
 nltk.download("stopwords")
@@ -119,8 +118,8 @@ def predict():
                 model = rfc.predict(vect)
                 data["predicted"]=model
                 data["predicted"] = data["predicted"].map({0:'Non Abusive', 1:'Abusive'})
-                data.to_csv('test.csv')
-                return send_file('test.csv')
+                data.to_csv('Predicted.csv')
+                return send_file('Predicted.csv')
                 
 
 
