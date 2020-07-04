@@ -28,7 +28,7 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    df = pd.read_csv('C:\\Users\princ\\abusive-email-detector\\train.csv')
+    df = pd.read_csv('C:\\Users\\princ\\Documents\\GitHub\\Data-Science-Projects\\Abusive-Email-Detectorr\\train.csv')
     df = df.drop(['Unnamed: 0', 'filename', 'Message-ID'], axis = 1)
     df['label'] = df['Class'].map({'Non Abusive': 0, 'Abusive': 1})
     def clean_text(text, ):
