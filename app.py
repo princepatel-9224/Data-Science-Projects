@@ -11,10 +11,9 @@ import joblib
 import seaborn as sns; sns.set_style('whitegrid')
 from nltk.tokenize import RegexpTokenizer
 import nltk
-nltk.data.path.append('C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/nltk_data/')
-nltk.download("stopwords", "C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/nltk_data/")
-nltk.download("punkt", "C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/nltk_data/")
-nltk.download("wordnet", "C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/nltk_data/")
+nltk.download("stopwords")
+nltk.download("punkt")
+nltk.download("wordnet")
 #nltk.download('stopwords')
 #nltk.download('punkt')
 #nltk.download('wordnet')
@@ -31,7 +30,7 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    df = pd.read_csv("C:/Users/princ/Documents/GitHub/Data-Science-Projects/Abusive-Email-Detector/train.csv")
+    df = pd.read_csv("C:/Users/princ/Documents/GitHub/Data-Science-Projects/train.csv")
     df = df.drop(['Unnamed: 0', 'filename', 'Message-ID'], axis = 1)
     df['label'] = df['Class'].map({'Non Abusive': 0, 'Abusive': 1})
     def clean_text(text, ):
