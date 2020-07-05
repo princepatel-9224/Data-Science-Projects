@@ -12,7 +12,7 @@ from nltk.tokenize import RegexpTokenizer
 import nltk
 nltk.download("stopwords")
 nltk.download("punkt")
-nltk.download("wordnet")
+#nltk.download("wordnet")
 #nltk.download('stopwords')
 #nltk.download('punkt')
 #nltk.download('wordnet')
