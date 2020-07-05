@@ -23,7 +23,7 @@ app = Flask(__name__)
 def home():
 	return render_template('index.html')
 
-@app.route('/Predict',methods=['POST'])
+@app.route('/predict',methods=['POST'])
 def predict():
     df = pd.read_csv(r'C:\Users\princ\Documents\GitHub\Data-Science-Projects\train.csv')
     df = df.drop(['Unnamed: 0', 'filename', 'Message-ID'], axis = 1)
