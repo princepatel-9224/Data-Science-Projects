@@ -21,7 +21,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return render_template('index.html')
+	return render_template('https://github.com/princepatel-9224/Data-Science-Projects/blob/master/templates/index.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -103,7 +103,7 @@ def predict():
             prediction = rfc.predict(vect)
             data['predicted']=prediction
             data["predicted"] = data["predicted"].map({0:'Non Abusive', 1:'Abusive'})
-            return render_template('result.html',tables=[data.to_html()], titles=data.columns.values)
+            return render_template('https://github.com/princepatel-9224/Data-Science-Projects/blob/master/templates/result.html',tables=[data.to_html()], titles=data.columns.values)
         
         
         else:
