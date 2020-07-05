@@ -10,6 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 import joblib
 from nltk.tokenize import RegexpTokenizer
 import nltk
+nltk.download('stopwords')
 
 stop_words = set(stopwords.words("english"))
 default_stemmer = PorterStemmer()
