@@ -16,16 +16,16 @@ stop_words = set(stopwords.words("english"))
 default_stemmer = PorterStemmer()
 default_stopwords = stopwords.words('english')
 default_tokenizer=RegexpTokenizer(r"\w+")
-
+#csv_url = "https://raw.githubusercontent.com/princepatel-9224/Data-Science-Projects/master/train.csv"
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return render_template('https://github.com/princepatel-9224/Data-Science-Projects/blob/master/templates/index.html')
+	return render_template('index.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    df = pd.read_csv("https://github.com/princepatel-9224/Data-Science-Projects/blob/master/train.csv")
+    df = pd.read_csv("train.csv")
     df = df.drop(['Unnamed: 0', 'filename', 'Message-ID'], axis = 1)
     df['label'] = df['Class'].map({'Non Abusive': 0, 'Abusive': 1})
     def clean_text(text, ):
@@ -103,7 +103,7 @@ def predict():
             prediction = rfc.predict(vect)
             data['predicted']=prediction
             data["predicted"] = data["predicted"].map({0:'Non Abusive', 1:'Abusive'})
-            return render_template('https://github.com/princepatel-9224/Data-Science-Projects/blob/master/templates/result.html',tables=[data.to_html()], titles=data.columns.values)
+            return render_template('result.html',tables=[data.to_html()], titles=data.columns.values)
         
         
         else:
